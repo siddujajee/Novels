@@ -11,14 +11,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class LoadAllEmployees extends HttpServlet {
     Connection con = null;
-    PreparedStatement loginStatement = null;
-    ResultSet loginRecord = null;
     public void init() throws ServletException {
         con = ConnectionFactory.buildConnection();
     }
