@@ -21,11 +21,10 @@ public class EmployeeDaoImplementation implements EmployeeDao {
             stmt = con.createStatement();
             ResultSet empList = stmt.executeQuery("select * from employee_table");
             while(empList.next()){
-                int empId = empList.getInt(1);
                 String empName = empList.getString(2);
                 String empDesignation = empList.getString(4);
                 int empSalary = empList.getInt(5);
-                Employee e = new Employee(empId, empName, empDesignation, empSalary);
+                Employee e = new Employee(empName, empDesignation, empSalary);
                 System.out.println(e);
                 allEmpList.add(e);
             }
@@ -36,7 +35,7 @@ public class EmployeeDaoImplementation implements EmployeeDao {
     }
 
     @Override
-    public boolean isEmpExist(String emp_name, String emp_password, HttpServletRequest req, HttpServletResponse resp) {
+    public Employee getEmployee(String emp_name, String emp_password, HttpServletRequest req, HttpServletResponse resp) {
         String loginQuery = "select * from employee_table where name = ? and password = ?";
         PreparedStatement loginStatement = null;
         ResultSet loginRecord = null;
@@ -46,9 +45,10 @@ public class EmployeeDaoImplementation implements EmployeeDao {
             loginStatement.setString(2, emp_password);
             loginRecord = loginStatement.executeQuery();
             if(loginRecord.next()){
-                return true;
+                Employee e = new Employee(emp_name, loginRecord.getString(4), loginRecord.getInt(5));
+                return e;
             }else{
-                return false;
+                return null;
             }
         } catch (Exception e) {
             throw new RuntimeException(e);

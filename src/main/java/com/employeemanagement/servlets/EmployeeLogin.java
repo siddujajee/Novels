@@ -7,6 +7,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -25,7 +26,10 @@ public class EmployeeLogin extends HttpServlet{
         String userName = req.getParameter("user_name");
         String password = req.getParameter("password");
         EmployeeDaoImplementation checking_emp_obj = new EmployeeDaoImplementation();
-        if(checking_emp_obj.isEmpExist(userName, password, req, resp)){
+        Employee loggedInEmployee = checking_emp_obj.getEmployee(userName, password, req, resp);
+        if(loggedInEmployee != null){
+            HttpSession session = req.getSession();
+            session.setAttribute("session_user", loggedInEmployee);
             req.getRequestDispatcher("/all_novel_list").forward(req, resp);
         }else{
             RequestDispatcher invalidCredentials = req.getRequestDispatcher("/invalidlogin.html");
