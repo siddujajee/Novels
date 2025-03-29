@@ -42,30 +42,30 @@ public class LoadAllEmployees extends HttpServlet {
 
         //until we learn about jsp we will write the data to the browser manually
 
-        PrintWriter empWritter = resp.getWriter();
-        resp.setContentType("text/html");
-        empWritter.println("<table>" +
-                "  <thead>" +
-                "    <tr>" +
-                "      <th>SI</th>" +
-                "      <th>Name</th>" +
-                "      <th>Designation</th>" +
-                "      <th>salary</th>" +
-                "    </tr>" +
-                "  </thead>");
-
-        for(Employee e: allEmpList){
-            empWritter.println("<table>" +
-                    "<tbody>" +
-                    "    <tr>" +
-                    "      <td>" + e.getId() + "</td>" +
-                    "      <td>" + e.getName() + "</td>" +
-                    "      <td>" + e.getDesignation() + "</td>" +
-                    "      <td>" + e.getSalary() + "</td>" +
-                    "    </tr>" +
-                    "  </tbody>");
-        }
-        empWritter.println("</table>");
-        empWritter.println("<a href='addemp'>Add employee</a>");
+//        PrintWriter empWritter = resp.getWriter();
+//        resp.setContentType("text/html");
+//        empWritter.println("<table>" +
+//                "  <thead>" +
+//                "    <tr>" +
+//                "      <th>SI</th>" +
+//                "      <th>Name</th>" +
+//                "      <th>Designation</th>" +
+//                "      <th>salary</th>" +
+//                "    </tr>" +
+//                "  </thead>");
+//
+//        for(Employee e: allEmpList){
+//            empWritter.println("<table>" +
+//                    "<tbody>" +
+//                    "    <tr>" +
+//                    "      <td>" + e.getId() + "</td>" +
+//                    "      <td>" + e.getName() + "</td>" +
+//                    "      <td>" + e.getDesignation() + "</td>" +
+//                    "      <td>" + e.getSalary() + "</td>" +
+//                    "    </tr>" +
+//                    "  </tbody>");
+//        }
+//        empWritter.println("</table>");
+//        empWritter.println("<a href='addemp'>Add employee</a>");
     }
 }
