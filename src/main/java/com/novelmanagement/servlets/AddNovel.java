@@ -17,7 +17,7 @@ public class AddNovel extends HttpServlet {
     public Connection con = null;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("novels/novel_form.html").forward(req, resp);
+        req.getRequestDispatcher("novels/novel_form.jsp").forward(req, resp);
     }
 
     @Override
