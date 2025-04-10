@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>LoginPage</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+  <div class="pageContent">
     <form action="login" method="post">
         <label for="user_name">
             User Name:
@@ -18,5 +16,5 @@
         <br>
         <input type="submit">
     </form>
+  </div>
 </body>
-</html>
