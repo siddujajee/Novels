@@ -10,6 +10,6 @@ import java.util.ArrayList;
 public interface NovelDao {
     ArrayList<Novel> getAllNovelList();
     int insertNovel(String novel_title, String novel_content, HttpServletRequest req, HttpServletResponse resp);
-    boolean updateNovel(Novel novel);
+    Novel updateNovel(Novel novel);
     boolean deleteNovel(int id);
 }

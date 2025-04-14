@@ -41,7 +41,6 @@ public class NovelDaoImplementation implements NovelDao {
             pstmt.setString(1, novel_title);
             pstmt.setString(2, novel_content);
             rows_impacted = pstmt.executeUpdate();
-            System.out.println(rows_impacted);
 
             PrintWriter novel_added_writer = resp.getWriter();
             resp.setContentType("text/html");
@@ -54,8 +53,20 @@ public class NovelDaoImplementation implements NovelDao {
     }
 
     @Override
-    public boolean updateNovel(Novel novel) {
-        return false;
+    public Novel updateNovel(Novel novel) {
+        int rows_impacted = 0;
+        try {
+            pstmt = con.prepareStatement("update novel_table set novel_title = ?, novel_content = ? where novel_id = ?");
+            pstmt.setString(1, novel.getNovel_title());
+            pstmt.setString(2, novel.getNovel_content());
+            pstmt.setInt(3, novel.getNovel_id());
+
+            rows_impacted = pstmt.executeUpdate();
+            System.out.println(rows_impacted);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return novel;
     }
 
     @Override
