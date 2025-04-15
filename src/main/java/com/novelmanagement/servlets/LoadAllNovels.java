@@ -52,21 +52,5 @@ public class LoadAllNovels extends HttpServlet {
         req.setAttribute("session_user", session.getAttribute("session_user"));
         req.getRequestDispatcher("novels/allnovels.jsp").forward(req, resp);
         req.setAttribute("session", session);
-//        PrintWriter empWritter = resp.getWriter();
-//        resp.setContentType("text/html");
-//
-//        for(Novel e: allNovelList){
-//            empWritter.println("<div style='border-bottom:1px solid black'>" +
-//                    "<div style='display:flex; align-items:center; gap:20px'>" +
-//                        "<h3 style='font-weight: bold'>Title: </h3>" +
-//                        "<p>" + e.getNovel_title() + "</p>" +
-//                    "</div>" +
-//                    "<div style='display:flex; align-items:center; gap:20px'>" +
-//                        "<h3 style='font-weight: bold'>Content: </h3>" +
-//                        "<p>" + e.getNovel_content() + "</p>" +
-//                    "</div>" +
-//                    "</div>");
-//        }
-//        empWritter.println("<a href='addnovel'>Add Novel</a>");
     }
 }
