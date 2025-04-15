@@ -18,8 +18,8 @@
         <textarea name="novel_content" id="novel_content" cols="30" rows="10"><%= novel.getNovel_content() %></textarea>
       </div>
       <br>
-      <input type="submit">
-      <button type="button" onclick="cancelEdit(<%= novel.getNovel_id() %>)">Cancel</button>
+      <input type="submit" class="actionButtons" style="cursor: pointer; background: #6af56a; border: none;">
+      <button type="button" class="actionButtons" style="cursor: pointer; background: #fd0519; border: none;" onclick="cancelEdit(<%= novel.getNovel_id() %>)">Cancel</button>
     </form>
   </div>
 </body>

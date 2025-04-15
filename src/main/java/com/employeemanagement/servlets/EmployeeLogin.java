@@ -29,7 +29,7 @@ public class EmployeeLogin extends HttpServlet{
         if(loggedInEmployee != null){
             HttpSession session = req.getSession();
             session.setAttribute("session_user", loggedInEmployee);
-            req.getRequestDispatcher("/all_novel_list").forward(req, resp);
+            resp.sendRedirect("all_novel_list");
         }else{
             RequestDispatcher invalidCredentials = req.getRequestDispatcher("/invalidlogin.html");
             invalidCredentials.forward(req, resp);
