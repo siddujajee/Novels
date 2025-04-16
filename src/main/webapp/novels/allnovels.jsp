@@ -7,7 +7,7 @@
 <body>
 <div class="pageContent">
   <% List<Novel> novels = (List<Novel>) request.getAttribute("novels");
-    if (novels != null) { %>
+    if (novels != null && !novels.isEmpty()) { %>
     <div style="display: flex; flex-wrap: wrap;">
       <% for (Novel novel : novels) { %>
         <div style="width: 25%; display: block" id="novelCard<%= novel.getNovel_id() %>">
@@ -41,8 +41,12 @@
     if(confirm("Are you sure you want to delete this Novel?")){
       fetch("/employeemanagementsoftware/delete_novel?id=" + novelId, {
         method: 'POST'
-      }).then(response => {
-        console.log(response);
+      }).then(response =>
+        response.text()
+      ).then(result => {
+        if(result != null){
+          location.reload();
+        }
       }).catch(error => {
         console.log(error);
       })
