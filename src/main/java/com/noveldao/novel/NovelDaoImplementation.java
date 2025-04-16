@@ -41,11 +41,6 @@ public class NovelDaoImplementation implements NovelDao {
             pstmt.setString(1, novel_title);
             pstmt.setString(2, novel_content);
             rows_impacted = pstmt.executeUpdate();
-
-            PrintWriter novel_added_writer = resp.getWriter();
-            resp.setContentType("text/html");
-            novel_added_writer.println("<h3>"  + novel_title + " is added to employee table </h3>");
-            novel_added_writer.println("<a href='all_novel_list' style='padding: 5px; text-decoration: none; background: blue; color: white;'>Ok</a>");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -71,6 +66,16 @@ public class NovelDaoImplementation implements NovelDao {
 
     @Override
     public boolean deleteNovel(int id) {
+        try{
+            pstmt = con.prepareStatement("delete from novel_table where novel_id = ?");
+            pstmt.setInt(1, id);
+            int total_deleted_rows = pstmt.executeUpdate();
+            if(total_deleted_rows > 0){
+                return true;
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }
         return false;
     }
 }

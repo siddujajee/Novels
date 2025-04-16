@@ -27,7 +27,8 @@ public class AddNovel extends HttpServlet {
         con = ConnectionFactory.buildConnection();
         NovelDaoImplementation novel_new_form_obj = new NovelDaoImplementation();
         int rows_impacted = novel_new_form_obj.insertNovel(novel_title, novel_content, req, resp);
-        System.out.println("total rows impacted" + rows_impacted);
-
+        if(rows_impacted > 0){
+            resp.sendRedirect("all_novel_list");
+        }
     }
 }
