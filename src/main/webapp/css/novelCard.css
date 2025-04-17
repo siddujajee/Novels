@@ -1,0 +1,64 @@
+/* Container holding all the cards */
+.novel-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Individual card */
+.novel-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 23%; /* Roughly 4 cards per row with gap */
+  padding: 20px;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.novel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.novel-card h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.novel-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* Action links */
+.novel-card a {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 6px 12px;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.novel-card a#editNovel {
+  background-color: #007bff;
+  color: white;
+}
+
+.novel-card a#editNovel:hover {
+  background-color: #0056b3;
+}
+
+.novel-card a#deleteNovel {
+  background-color: #dc3545;
+  color: white;
+}
+
+.novel-card a#deleteNovel:hover {
+  background-color: #b02a37;
+}
