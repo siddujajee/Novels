@@ -31,8 +31,8 @@ public class EmployeeLogin extends HttpServlet{
             session.setAttribute("session_user", loggedInEmployee);
             resp.sendRedirect("all_novel_list");
         }else{
-            RequestDispatcher invalidCredentials = req.getRequestDispatcher("/invalidlogin.html");
-            invalidCredentials.forward(req, resp);
+            req.setAttribute("errorMessage", "Invalid username or password. Please try again");
+            req.getRequestDispatcher("/login.jsp").forward(req, resp);
         }
     }
 }
