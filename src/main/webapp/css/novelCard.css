@@ -10,6 +10,7 @@
 .novel-card {
   background-color: #ffffff;
   border-radius: 8px;
+  min-height: 315px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 23%; /* Roughly 4 cards per row with gap */
   padding: 20px;
@@ -37,8 +38,8 @@
 /* Action links */
 .novel-card a {
   display: inline-block;
-  margin-right: 10px;
-  padding: 6px 12px;
+  margin-right: 5px;
+  padding: 5px 5px;
   font-size: 14px;
   text-decoration: none;
   border-radius: 4px;
