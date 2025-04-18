@@ -1,6 +1,6 @@
 
 <head>
-  <link rel="stylesheet" type="text/css" href="css/novelcard.css">
+  <link rel="stylesheet" type="text/css" href="css/novelCard.css">
 </head>
 <div class="novel-card" id="novelCard<%= novel.getNovel_id() %>">
   <% if(session.getAttribute("session_user") != null){ %>
