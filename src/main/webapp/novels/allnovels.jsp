@@ -1,8 +1,5 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.noveldao.novel.Novel" %>
-<head>
-  <link rel="stylesheet" type="text/css" href="css/novelCard.css">
-</head>
 <%@ include file="/header.jsp" %>
 <body>
 <div class="pageContent">
@@ -10,15 +7,7 @@
     if (novels != null && !novels.isEmpty()) { %>
     <div class="novel-container">
       <% for (Novel novel : novels) { %>
-        <div class="novel-card" id="novelCard<%= novel.getNovel_id() %>">
-          <h2><%= novel.getNovel_title() %></h2>
-          <p><%= novel.getNovel_content() %></p>
-          <% if(session.getAttribute("session_user") != null){ %>
-            <a href="#" id="editNovel" onclick="renderForm(<%= novel.getNovel_id() %>)">Edit</a>
-            <a href="#" id="deleteNovel" onclick="deleteConfirmation(<%= novel.getNovel_id() %>)">Delete</a>
-          <% } %>
-        </div>
-        <div id="novelEditForm<%= novel.getNovel_id() %>" style="display: none"><%@ include file="edit_novel_form.jsp" %></div>
+        <%@ include file="novel.jsp" %>
       <%} %>
     </div>
     <% } else {

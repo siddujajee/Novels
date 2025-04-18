@@ -28,6 +28,13 @@
       <artifactId>mysql-connector-j</artifactId>
       <version>8.3.0</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.webjars/font-awesome -->
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>font-awesome</artifactId>
+      <version>6.5.1</version> <!-- Replace with the latest version if needed -->
+    </dependency>
+
   </dependencies>
   <build>
     <finalName>employeemanagementsoftware</finalName>
